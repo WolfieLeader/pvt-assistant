@@ -6,6 +6,11 @@
       "sourceType": "github",
       "computedHash": "5cafa1558b0b6bd4d4c71f23d5567b7fcbbcdb4b0a50b0c5f69a80a3cebaf9b8"
     },
+    "building-native-ui": {
+      "source": "expo/skills",
+      "sourceType": "github",
+      "computedHash": "342df93f481a0dba919f372d6c7b40d2b4bf5b51dd24363aea2e5d0bae27a6fa"
+    },
     "dispatching-parallel-agents": {
       "source": "obra/superpowers",
       "sourceType": "github",
@@ -16,10 +21,20 @@
       "sourceType": "github",
       "computedHash": "7311ed85870f37e9af1e8354c500e7c4161893d845031eed43dd1d55157da83a"
     },
+    "expo-api-routes": {
+      "source": "expo/skills",
+      "sourceType": "github",
+      "computedHash": "015c6b849507fda73fcc32d2448f033aaaaa21f5229085342b8421727a90cafb"
+    },
     "finishing-a-development-branch": {
       "source": "obra/superpowers",
       "sourceType": "github",
       "computedHash": "9edba9a38684c060fdc38290f640e1dc0c37de286723ac9be73bacacf7cd6f3d"
+    },
+    "native-data-fetching": {
+      "source": "expo/skills",
+      "sourceType": "github",
+      "computedHash": "6c14e4efb34a9c4759e8b959f82dec328f87dd89a022957c6737086984b9b106"
     },
     "receiving-code-review": {
       "source": "obra/superpowers",
