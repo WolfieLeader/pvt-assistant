@@ -1,4 +1,5 @@
 {
+  "$schema": "https://json.schemastore.org/claude-code-settings.json",
   "env": {
     "CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS": "1"
   },
@@ -9,17 +10,19 @@
         "hooks": [
           {
             "type": "command",
-            "command": "bash .claude/hooks/block-git-commit.sh"
+            "command": "bash \"$CLAUDE_PROJECT_DIR/.claude/hooks/block-git-commit.sh\""
           }
         ]
       }
     ],
     "Notification": [
       {
+        "matcher": "permission_prompt",
         "hooks": [
           {
             "type": "command",
-            "command": "afplay /System/Library/Sounds/Blow.aiff"
+            "command": "bash \"$CLAUDE_PROJECT_DIR/.claude/hooks/notification-sound.sh\"",
+            "async": true
           }
         ]
       }
@@ -29,7 +32,8 @@
         "hooks": [
           {
             "type": "command",
-            "command": "afplay /System/Library/Sounds/Submarine.aiff"
+            "command": "bash \"$CLAUDE_PROJECT_DIR/.claude/hooks/notification-sound.sh\"",
+            "async": true
           }
         ]
       }

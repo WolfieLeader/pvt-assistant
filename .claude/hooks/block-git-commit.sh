@@ -1,6 +1,6 @@
-#!/bin/bash
+#!/usr/bin/env bash
 COMMAND=$(jq -r '.tool_input.command' < /dev/stdin)
-if echo "$COMMAND" | grep -qE '(^|\s|&&|\|)git\s+commit'; then
+if [[ "$COMMAND" =~ (^|[[:space:]]|&&|\||;)git[[:space:]]+commit ]]; then
   jq -n '{
     hookSpecificOutput: {
       hookEventName: "PreToolUse",
