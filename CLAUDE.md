@@ -1,4 +1,9 @@
+# pvt-assistant - Expo React Native mobile app.
+
+## Global
+
 - In all interaction, be extremely concise and sacrifice grammar for the sake of concision.
+- At the end of each plan, give me a list of unresolved questions to answer, if any. Make the questions extremely concise and sacrifice grammar for the sake of concision.
 
 ## Code
 
@@ -13,7 +18,6 @@
 
 ## Dependencies
 
-- Using Expo React Native
 - Using Uniwind and not Nativewind for Tailwind support
 - Using latest Zod (v4), convention for schema is `zXx`
 - Using Drizzle with SQLite and Expo
@@ -21,7 +25,3 @@
 ## Git
 
 - NEVER run `git commit` — user reviews and commits manually
-
-## Plans
-
-- At the end of each plan, give me a list of unresolved questions to answer, if any. Make the questions extremely concise and sacrifice grammar for the sake of concision.
