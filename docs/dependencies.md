@@ -23,7 +23,7 @@ expo, expo-constants, expo-device, expo-font, expo-glass-effect, expo-image, exp
 ## Dev
 
 - **typescript** — Static type checker — [docs](https://www.typescriptlang.org) · [npm](https://www.npmjs.com/package/typescript) · [gh](https://github.com/microsoft/TypeScript)
-- **eslint** — Code linter — [docs](https://eslint.org) · [npm](https://www.npmjs.com/package/eslint) · [gh](https://github.com/eslint/eslint)
+- **eslint** ^9 — Code linter (pinned to 9.x; eslint-plugin-react incompatible w/ v10) — [docs](https://eslint.org) · [npm](https://www.npmjs.com/package/eslint) · [gh](https://github.com/eslint/eslint)
 - **eslint-config-expo** — Expo ESLint preset — [npm](https://www.npmjs.com/package/eslint-config-expo) · [gh](https://github.com/expo/expo)
 - **eslint-plugin-unicorn** — Opinionated ESLint rules — [npm](https://www.npmjs.com/package/eslint-plugin-unicorn) · [gh](https://github.com/sindresorhus/eslint-plugin-unicorn)
 - **prettier** — Code formatter — [docs](https://prettier.io) · [npm](https://www.npmjs.com/package/prettier) · [gh](https://github.com/prettier/prettier)

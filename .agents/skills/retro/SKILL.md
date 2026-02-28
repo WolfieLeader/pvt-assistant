@@ -27,18 +27,23 @@ After finishing a feature, bugfix, or significant task — before moving on.
 
 ```markdown
 # Retro: <Feature Name>
+
 **Date**: <YYYY-MM-DD>
 
 ## What was built
+
 <1-2 sentences>
 
 ## What went well
+
 - ...
 
 ## What didn't
+
 - ...
 
 ## Learnings
+
 - ...
 ```
 

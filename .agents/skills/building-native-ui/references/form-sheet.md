@@ -37,8 +37,7 @@ export default function Layout() {
           headerTransparent: true,
           contentStyle: { backgroundColor: "transparent" },
           sheetGrabberVisible: true,
-        }}
-      >
+        }}>
         <Stack.Header style={{ backgroundColor: "transparent" }}></Stack.Header>
       </Stack.Screen>
     </Stack>
@@ -92,7 +91,7 @@ Use `sheetLargestUndimmedDetentIndex` (zero-indexed) to keep content behind the 
 
 ```tsx
 // app/_layout.tsx
-import { Stack } from 'expo-router';
+import { Stack } from "expo-router";
 
 export default function Layout() {
   return (
@@ -108,7 +107,7 @@ export default function Layout() {
         }}
       />
     </Stack>
-  )
+  );
 }
 ```
 
@@ -149,8 +148,7 @@ export default function Layout() {
           sheetGrabberVisible: true,
           sheetAllowedDetents: [0.25],
           headerTransparent: true,
-        }}
-      >
+        }}>
         <Stack.Header style={{ backgroundColor: "transparent" }}>
           <Stack.Header.Right />
         </Stack.Header>
@@ -170,9 +168,7 @@ export default function ConfirmSheet() {
     <View style={styles.container}>
       <View style={styles.content}>
         <Text style={styles.title}>Confirm Action</Text>
-        <Text style={styles.description}>
-          Are you sure you want to proceed?
-        </Text>
+        <Text style={styles.description}>Are you sure you want to proceed?</Text>
       </View>
 
       <View style={styles.footer}>
