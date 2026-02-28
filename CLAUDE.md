@@ -1,4 +1,4 @@
-# pvt-assistant - Expo React Native mobile app.
+# pvt-assistant - Bun Expo React Native mobile app.
 
 ## Global
 

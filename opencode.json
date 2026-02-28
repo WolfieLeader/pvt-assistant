@@ -15,7 +15,7 @@
       "disabled": true
     }
   },
-  "instructions": "Read and follow AGENTS.md in the project root.",
+  "instructions": ["Read and follow AGENTS.md in the project root."],
   "permission": {
     "bash": {
       "*": "allow",
