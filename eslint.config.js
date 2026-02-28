@@ -33,7 +33,6 @@ module.exports = defineConfig([
       "default-param-last": "off",
       "@typescript-eslint/default-param-last": "error",
       "@typescript-eslint/prefer-as-const": "error",
-      "@typescript-eslint/prefer-enum-initializers": "error",
       "@typescript-eslint/no-inferrable-types": "error",
       "no-restricted-syntax": [
         "error",
