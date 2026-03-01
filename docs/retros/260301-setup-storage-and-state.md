@@ -1,4 +1,4 @@
-# Retro: Phase 1 & 2 — Foundation + State & Providers
+# Retro: Storage & State Setup
 
 **Date**: 2026-03-01
 

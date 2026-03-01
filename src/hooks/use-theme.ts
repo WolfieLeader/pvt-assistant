@@ -1,5 +1,4 @@
-import { useEffect } from "react";
-import { Uniwind, useUniwind } from "uniwind";
+import { useUniwind } from "uniwind";
 import { useThemeStore } from "~/stores/theme";
 
 export function useTheme() {
@@ -7,14 +6,5 @@ export function useTheme() {
   const setPreference = useThemeStore((s) => s.setPreference);
   const { theme } = useUniwind();
 
-  useEffect(() => {
-    Uniwind.setTheme(preference);
-  }, [preference]);
-
-  return {
-    preference,
-    setPreference,
-    theme,
-    isDark: theme === "dark",
-  };
+  return { preference, setPreference, theme, isDark: theme === "dark" };
 }

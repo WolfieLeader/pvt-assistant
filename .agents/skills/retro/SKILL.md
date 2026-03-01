@@ -16,7 +16,7 @@ After finishing a feature, bugfix, or significant task — before moving on.
 1. **Review** — Summarize what was built and key decisions made
 2. **Reflect** — What went well? What didn't? Any surprises?
 3. **Learnings** — Extract reusable patterns or pitfalls
-4. **Write retro** — Save to `docs/retros/<YYYY-MM-DD>_<feature-name>.md` with:
+4. **Write retro** — Save to `docs/retros/<YYMMDD>-<what-was-done>.md` with:
    - What was built (1-2 sentences)
    - What went well
    - What didn't / friction points
@@ -52,3 +52,4 @@ After finishing a feature, bugfix, or significant task — before moving on.
 - Keep retros short — value density over length
 - Focus on actionable learnings, not venting
 - Only suggest CLAUDE.md updates for patterns that will recur
+- **Naming**: filename describes what was done (e.g. `setup-design-system`, `add-auth-flow`), not phase/ticket/issue references

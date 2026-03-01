@@ -13,15 +13,15 @@
 ### Phase 2: State & Providers - Complete
 
 1. Create Zustand stores with MMKV persistence (theme-store, settings-store, onboarding-store)
-2. Create providers: DatabaseProvider, QueryProvider
+2. Create providers: ThemeProvider, QueryProvider (DatabaseProvider removed — migrations handled via `use-migrations` hook)
 3. Create `use-theme` hook (reads theme-store + system preference)
 4. Wire providers into root layout (`app/_layout.tsx`)
 
-### Phase 3: Design System
+### Phase 3: Design System - Complete
 
 1. Set up design tokens in `global.css` via @theme (primary palette 50-950, semantic colors, radius, shadows)
 2. Add dark mode overrides via `@variant dark`
-3. Load custom font via `expo-font` (Inter)
+3. Load custom font via `expo-font` (Inter) with custom hook
 4. Create constants: `typography.ts`, `spacing.ts`, `haptics.ts`
 
 ### Phase 4: Navigation & UI Components

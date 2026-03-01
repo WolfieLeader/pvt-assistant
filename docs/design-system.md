@@ -14,23 +14,25 @@ Inspired by **Fuse Wallet** and **Five Cents** expense app:
 
 ### Color Palette — Custom Primary (Rose × Pink blend)
 
-Custom primary color defined in `global.css` via `@theme`. 70% rose / 30% pink blend — warm, slightly pink-tinted rose.
+Custom primary color defined in `global.css` via `@theme`. 77% rose / 23% pink blend — warm, slightly pink-tinted rose. Verified: lightness gaps within ±0.3% of Tailwind rose, hue span 11.1°, monotonic lightness.
 
-**Primary scale (approximate hex):**
+**Generation process**: Base color generated via [uicolors.app](https://uicolors.app/generate/fb75ae), cross-referenced against [Tailwind v4 OKLCH colors](https://tailwindcss.com/docs/colors). To regenerate or tweak: start with uicolors.app, verify lightness curve against Tailwind rose/pink scales.
+
+**Primary scale (final hex):**
 
 | Shade | Hex     | Usage                                 |
 | ----- | ------- | ------------------------------------- |
-| 50    | #fef1f4 | Tinted backgrounds                    |
-| 100   | #fee5ea | Hover states, light fills             |
-| 200   | #fdced9 | Soft borders, secondary backgrounds   |
-| 300   | #fca5ba | Inactive/disabled accents             |
-| 400   | #f97194 | Secondary buttons, tags               |
-| 500   | #f24270 | Primary accent — buttons, active tabs |
-| 600   | #df2056 | Pressed states, emphasis              |
-| 700   | #be1446 | Dark text on light backgrounds        |
-| 800   | #9e143f | High-contrast elements                |
-| 900   | #87153b | Very dark accent                      |
-| 950   | #4d061c | Near-black tinted                     |
+| 50    | #fff1f3 | Tinted backgrounds                    |
+| 100   | #fee5e9 | Hover states, light fills             |
+| 200   | #fdcdd8 | Soft borders, secondary backgrounds   |
+| 300   | #fca5b8 | Inactive/disabled accents             |
+| 400   | #f97190 | Secondary buttons, tags               |
+| 500   | #f2416c | Primary accent — buttons, active tabs |
+| 600   | #e01f53 | Pressed states, emphasis              |
+| 700   | #be1344 | Dark text on light backgrounds        |
+| 800   | #9f133e | High-contrast elements                |
+| 900   | #87143a | Very dark accent                      |
+| 950   | #4d051c | Near-black tinted                     |
 
 **Semantic tokens (CSS custom properties via @theme):**
 
@@ -42,7 +44,7 @@ Light mode uses default values; dark mode overrides via `@variant dark`:
 | --card       | #FFFFFF               | #161616               | Card/surface background |
 | --text       | #1A1A1A               | #F5F5F5               | Primary text            |
 | --muted      | #71717A               | #A1A1AA               | Secondary text          |
-| --accent     | primary-500 (#f24270) | primary-400 (#f97194) | Buttons, active tabs    |
+| --accent     | primary-500 (#f2416c) | primary-400 (#f97190) | Buttons, active tabs    |
 | --success    | #22C55E               | #4ADE80               | Positive actions        |
 | --danger     | #DC2626               | #F87171               | Destructive actions     |
 | --border     | #E4E4E7               | #27272A               | Subtle dividers         |

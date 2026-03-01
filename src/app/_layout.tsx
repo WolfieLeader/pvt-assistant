@@ -1,17 +1,19 @@
 import { Stack } from "expo-router";
 import "~/global.css";
-import { useTheme } from "~/hooks/use-theme";
-import { DatabaseProvider } from "~/providers/database";
+import { useAppReady } from "~/hooks/use-app-ready";
+import { ThemeProvider } from "~/providers/theme";
 import { QueryProvider } from "~/providers/react-query";
 
 export default function RootLayout() {
-  useTheme();
+  const { ready, error } = useAppReady();
+  if (error) throw error;
+  if (!ready) return null;
 
   return (
-    <QueryProvider>
-      <DatabaseProvider>
+    <ThemeProvider>
+      <QueryProvider>
         <Stack />
-      </DatabaseProvider>
-    </QueryProvider>
+      </QueryProvider>
+    </ThemeProvider>
   );
 }

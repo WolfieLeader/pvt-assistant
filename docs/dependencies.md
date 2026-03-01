@@ -27,6 +27,7 @@ npm: `npmjs.com/package/{name}`
 - **react-native-mmkv** — Fast sync key-value storage — [gh](https://github.com/mrousavy/react-native-mmkv)
 - **expo-haptics** — Haptic feedback — [docs](https://docs.expo.dev/versions/latest/sdk/haptics) · [gh](https://github.com/expo/expo)
 - **@gorhom/bottom-sheet** — Bottom sheet component — [docs](https://gorhom.dev/react-native-bottom-sheet) · [gh](https://github.com/gorhom/react-native-bottom-sheet)
+- **@expo-google-fonts/inter** — Inter font (400/500/600/700) — [gh](https://github.com/expo/google-fonts)
 
 ### Expo — [docs](https://docs.expo.dev)
 

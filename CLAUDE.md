@@ -5,3 +5,5 @@
 - Security first!
 - Minimal comments, only if needed
 - When adding/removing deps, update `docs/dependencies.md`
+- CSS tokens in `global.css` must have matching `src/consts/`
+- RN fonts: use per-weight family names, not `fontWeight`
