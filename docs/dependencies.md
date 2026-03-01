@@ -15,10 +15,22 @@ npm: `npmjs.com/package/{name}`
 - **@react-navigation/native**, **bottom-tabs**, **elements** — Navigation framework — [docs](https://reactnavigation.org) · [gh](https://github.com/react-navigation/react-navigation)
 - **uniwind** — Fast Tailwind bindings for RN — [docs](https://uniwind.dev) · [gh](https://github.com/nicolo-ribaudo/uniwind)
 - **tailwindcss** — Utility-first CSS framework — [docs](https://tailwindcss.com) · [gh](https://github.com/tailwindlabs/tailwindcss)
+- **drizzle-orm** — Lightweight TypeScript ORM — [docs](https://orm.drizzle.team) · [gh](https://github.com/drizzle-team/drizzle-orm)
+- **expo-sqlite** — SQLite database for Expo — [docs](https://docs.expo.dev/versions/latest/sdk/sqlite) · [gh](https://github.com/expo/expo)
+- **zod** — Schema validation — [docs](https://zod.dev) · [gh](https://github.com/colinhacks/zod)
+- **nanoid** — Compact ID generator — [gh](https://github.com/ai/nanoid)
+- **zustand** — Lightweight state management — [docs](https://zustand.docs.pmnd.rs) · [gh](https://github.com/pmndrs/zustand)
+- **@tanstack/react-query** — Async state management — [docs](https://tanstack.com/query) · [gh](https://github.com/TanStack/query)
+- **@shopify/flash-list** — High-performance list — [docs](https://shopify.github.io/flash-list) · [gh](https://github.com/Shopify/flash-list)
+- **lucide-react-native** — Icon set (requires react-native-svg peer) — [docs](https://lucide.dev) · [gh](https://github.com/lucide-icons/lucide)
+- **react-native-svg** — SVG support for RN — [gh](https://github.com/software-mansion/react-native-svg)
+- **react-native-mmkv** — Fast sync key-value storage — [gh](https://github.com/mrousavy/react-native-mmkv)
+- **expo-haptics** — Haptic feedback — [docs](https://docs.expo.dev/versions/latest/sdk/haptics) · [gh](https://github.com/expo/expo)
+- **@gorhom/bottom-sheet** — Bottom sheet component — [docs](https://gorhom.dev/react-native-bottom-sheet) · [gh](https://github.com/gorhom/react-native-bottom-sheet)
 
 ### Expo — [docs](https://docs.expo.dev)
 
-expo, expo-constants, expo-device, expo-font, expo-glass-effect, expo-image, expo-linking, expo-router, expo-splash-screen, expo-status-bar, expo-symbols, expo-system-ui, expo-web-browser
+expo, expo-constants, expo-device, expo-font, expo-glass-effect, expo-haptics, expo-image, expo-linking, expo-router, expo-splash-screen, expo-sqlite, expo-status-bar, expo-symbols, expo-system-ui, expo-web-browser
 
 ## Dev
 
@@ -28,15 +40,14 @@ expo, expo-constants, expo-device, expo-font, expo-glass-effect, expo-image, exp
 - **eslint-plugin-unicorn** — Opinionated ESLint rules — [gh](https://github.com/sindresorhus/eslint-plugin-unicorn)
 - **prettier** — Code formatter — [docs](https://prettier.io) · [gh](https://github.com/prettier/prettier)
 - **@types/react** — React type definitions — [gh](https://github.com/DefinitelyTyped/DefinitelyTyped)
+- **drizzle-kit** — Drizzle migration toolkit — [docs](https://orm.drizzle.team/docs/kit-overview) · [gh](https://github.com/drizzle-team/drizzle-orm)
+- **babel-plugin-inline-import** — Inline file imports (SQL migrations) — [gh](https://github.com/quadrupleslap/babel-plugin-inline-import)
 
 ## Planned
 
 ```bash
-# Production
-bun add llama.rn drizzle-orm expo-sqlite zod expo-notifications expo-file-system expo-haptics expo-document-picker expo-image-picker expo-camera nanoid zustand @tanstack/react-query @shopify/flash-list lucide-react-native react-native-svg react-native-mmkv @gorhom/bottom-sheet
-
-# Dev
-bun add -d drizzle-kit babel-plugin-inline-import
+# Production (future phases)
+bun add llama.rn expo-notifications expo-file-system expo-document-picker expo-image-picker expo-camera
 ```
 
 ### Library Roles
