@@ -49,5 +49,6 @@
     ".agents": "robot",
     ".opencode": "cline",
     "skills": "plugin"
-  }
+  },
+  "cSpell.words": ["mmkv", "Uniwind"]
 }

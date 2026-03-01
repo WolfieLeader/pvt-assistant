@@ -2,7 +2,7 @@
 
 ## Implementation Phases
 
-### Phase 1: Dependencies & Storage
+### Phase 1: Dependencies & Storage - Complete
 
 1. Install production deps (drizzle-orm, expo-sqlite, zod, nanoid, zustand, @tanstack/react-query, @shopify/flash-list, lucide-react-native, react-native-svg, react-native-mmkv, expo-haptics, @gorhom/bottom-sheet)
 2. Install dev deps (drizzle-kit, babel-plugin-inline-import)
@@ -10,7 +10,7 @@
 4. Set up Drizzle client + connection (schema + migrations deferred to feature phases)
 5. Update `docs/dependencies.md` — move installed deps from Planned to Installed
 
-### Phase 2: State & Providers
+### Phase 2: State & Providers - Complete
 
 1. Create Zustand stores with MMKV persistence (theme-store, settings-store, onboarding-store)
 2. Create providers: DatabaseProvider, QueryProvider
@@ -32,6 +32,7 @@
 4. Create placeholder tab screens
 
 **Schema/migration ownership by feature phase:**
+
 - Phase 5 (Onboarding): `user_settings` table
 - Phase 7 (Expenses): `expenses` + `attachments` tables
 - Phase 8 (Tasks): `tasks` table
