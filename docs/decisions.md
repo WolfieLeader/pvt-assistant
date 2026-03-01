@@ -28,7 +28,7 @@
 | Export                   | Not in V1                                                                                  |
 | UI style                 | iOS-inspired/Fuse app inspired, cross-platform (no native components), dark + light themes |
 | Color                    | Custom "primary" palette (rose×pink blend) defined in Tailwind @theme, full 50-950 scale   |
-| Font                     | SF Pro-like (candidates: Rubik, Heebo, Inter, Plus Jakarta Sans, Manrope — test later)     |
+| Font                     | Inter — humanist sans, great readability, matches Fuse Wallet reference                    |
 | Interactions             | iOS: scale+opacity+haptics / Android: scale+ripple+haptics (important only)                |
 | State mgmt               | Zustand (global state) + TanStack Query (async queries/mutations)                          |
 | Lists                    | FlashList v2 (New Architecture only, JS-based recycling)                                   |

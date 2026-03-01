@@ -2,30 +2,53 @@
 
 ## Implementation Phases
 
-### Phase 1: Foundation & Design System
+### Phase 1: Dependencies & Storage
 
-1. Install all deps (drizzle, expo-sqlite, zod, nanoid, zustand, tanstack-query, flash-list, lucide, mmkv, expo-haptics)
-2. Set up MMKV instance (`utils/mmkv.ts`)
-3. Set up Zustand stores (theme-store with MMKV persistence, settings-store, onboarding-store)
-4. Set up design tokens in `global.css` via @theme (primary palette, semantic colors, radius) + `typography.ts`, `spacing.ts`, `haptics.ts`
-5. Load custom font via `expo-font` (start with Rubik, test others later)
-6. Set up Drizzle schema + migrations + client
-7. Create providers: DatabaseProvider, QueryProvider
-8. Create `use-theme` hook (reads theme-store + system preference)
-9. Set up tab navigation (`(tabs)/_layout.tsx`)
-10. Build shared UI components (button with platform interactions, card, input, skeleton, search-bar)
-11. Create screen-wrapper layout component
+1. Install production deps (drizzle-orm, expo-sqlite, zod, nanoid, zustand, @tanstack/react-query, @shopify/flash-list, lucide-react-native, react-native-svg, react-native-mmkv, expo-haptics, @gorhom/bottom-sheet)
+2. Install dev deps (drizzle-kit, babel-plugin-inline-import)
+3. Set up MMKV instance (`utils/mmkv.ts`)
+4. Set up Drizzle client + connection (schema + migrations deferred to feature phases)
+5. Update `docs/dependencies.md` — move installed deps from Planned to Installed
 
-### Phase 2: Onboarding
+### Phase 2: State & Providers
+
+1. Create Zustand stores with MMKV persistence (theme-store, settings-store, onboarding-store)
+2. Create providers: DatabaseProvider, QueryProvider
+3. Create `use-theme` hook (reads theme-store + system preference)
+4. Wire providers into root layout (`app/_layout.tsx`)
+
+### Phase 3: Design System
+
+1. Set up design tokens in `global.css` via @theme (primary palette 50-950, semantic colors, radius, shadows)
+2. Add dark mode overrides via `@variant dark`
+3. Load custom font via `expo-font` (Inter)
+4. Create constants: `typography.ts`, `spacing.ts`, `haptics.ts`
+
+### Phase 4: Navigation & UI Components
+
+1. Set up tab navigation (`(tabs)/_layout.tsx`) — Chat, Expenses, Tasks, Settings
+2. Build shared UI components: Button (with platform-specific press interactions), Card, Input, Skeleton, SearchBar
+3. Create ScreenWrapper layout component
+4. Create placeholder tab screens
+
+**Schema/migration ownership by feature phase:**
+- Phase 5 (Onboarding): `user_settings` table
+- Phase 7 (Expenses): `expenses` + `attachments` tables
+- Phase 8 (Tasks): `tasks` table
+
+Each phase defines its schema + runs migrations when it first needs the tables.
+
+### Phase 5: Onboarding
 
 1. Build hello screen with CTA
 2. Model selection screen (curated list, device info, download progress)
 3. Currency picker screen
 4. Optional hourly rate input screen
-5. Persist settings in user_settings table
-6. Gate: redirect to onboarding if no model downloaded
+5. Define `user_settings` Drizzle schema + migration
+6. Persist settings in user_settings table
+7. Gate: redirect to onboarding if no model downloaded
 
-### Phase 3: Chat Core
+### Phase 6: Chat Core
 
 1. Install llama.rn
 2. Build LLM context manager (`llm/context.ts`)
@@ -35,25 +58,27 @@
 6. Implement chat-service pipeline (without extraction yet — echo mode)
 7. Store chat messages in DB
 
-### Phase 4: Expense Extraction
+### Phase 7: Expense Extraction
 
 1. Write intent-classifier prompt + GBNF
 2. Write expense-extraction prompt + GBNF grammar + zExpenseExtraction
-3. Implement expense-service (create, read, update, delete)
-4. Build expense list screen + expense-card (with work-hours context)
-5. Wire chat → pre-process → classify → extract → store → confirm flow
-6. Add search bar + category/date filters on expense list
+3. Define `expenses` + `attachments` Drizzle schema + migration
+4. Implement expense-service (create, read, update, delete)
+5. Build expense list screen + expense-card (with work-hours context)
+6. Wire chat → pre-process → classify → extract → store → confirm flow
+7. Add search bar + category/date filters on expense list
 
-### Phase 5: Task Extraction
+### Phase 8: Task Extraction
 
 1. Write task-extraction prompt + GBNF grammar + zTaskExtraction
-2. Implement task-service
-3. Set up expo-notifications for reminders
-4. Build task list screen + task-card
-5. Wire task extraction into chat pipeline
-6. Add search + priority/status filters on task list
+2. Define `tasks` Drizzle schema + migration
+3. Implement task-service
+4. Set up expo-notifications for reminders
+5. Build task list screen + task-card
+6. Wire task extraction into chat pipeline
+7. Add search + priority/status filters on task list
 
-### Phase 6: Settings & Model Management
+### Phase 9: Settings & Model Management
 
 1. Build model-manager service (download, delete, swap)
 2. Build settings screen (model picker, currency, hourly rate, categories, security)
@@ -61,7 +86,7 @@
 4. App lock: passcode set/change UI + lock screen + AppState listener
 5. Privacy mode: security-store + usePrivacy hook + wire into expense cards/totals
 
-### Phase 7: Polish
+### Phase 10: Polish
 
 1. Attachments (camera, photo library, document picker → expense)
 2. Subscription keyword detection in pre-processor + LLM extraction
@@ -81,9 +106,3 @@
 - Verify model download flow in settings on real device (simulator doesn't support Metal GPU)
 - Manual test: enable app lock, background app, re-open → lock screen appears
 - Manual test: tap total on expenses tab → all amounts mask to $xx.xx, tap again → reveal
-
----
-
-## Remaining Open Questions
-
-1. **Which font?** — test Rubik, Heebo, Inter, Plus Jakarta Sans on device, decide later

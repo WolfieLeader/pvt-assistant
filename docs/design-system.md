@@ -61,17 +61,9 @@ Theme follows system preference by default, manual toggle in settings. Component
 - **Splash screen** — shows during critical init (DB migrations, LLM context load)
 - **Skeleton screens** — for non-critical data (expense list, task list, chat history)
 
-### Font Candidates (to be tested)
+### Font — Inter
 
-| Font              | Style             | Notes                                    |
-| ----------------- | ----------------- | ---------------------------------------- |
-| Rubik             | Rounded geometric | User has used before, warm feel          |
-| Heebo             | Clean geometric   | User has used before, Hebrew support     |
-| Inter             | Humanist sans     | Fuse Wallet uses this, great readability |
-| Plus Jakarta Sans | Soft geometric    | Close to SF Pro, modern feel             |
-| Manrope           | Geometric sans    | SF Pro-like x-height and proportions     |
-
-Load via `expo-font` — same font on both platforms for consistency.
+**Inter** (humanist sans-serif) — great readability, used by Fuse Wallet reference design. Loaded via `expo-font` — same font on both platforms for consistency.
 
 ### Platform-Specific Interactions
 
