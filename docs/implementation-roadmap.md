@@ -26,10 +26,12 @@
 
 ### Phase 4: Navigation & UI Components
 
-1. Set up tab navigation (`(tabs)/_layout.tsx`) — Chat, Expenses, Tasks, Settings
-2. Build shared UI components: Button (with platform-specific press interactions), Card, Input, Skeleton, SearchBar
-3. Create ScreenWrapper layout component
-4. Create placeholder tab screens
+1. Set up tab navigation (`(tabs)/_layout.tsx`) — Home, Expenses, Tasks, Settings
+2. Add FAB + chat modal (`fullScreenModal` presentation at root stack level)
+3. Add ScrollContext (reanimated shared value) for FAB scroll-hide behavior
+4. Build shared UI components: Button, Card, Text, Chip, IconButton, Skeleton, Screen, FAB
+5. Build manual add forms in chat modal (quick-action cards, add-expense-form, add-task-form)
+6. Create placeholder tab screens
 
 **Schema/migration ownership by feature phase:**
 
@@ -41,13 +43,13 @@ Each phase defines its schema + runs migrations when it first needs the tables.
 
 ### Phase 5: Onboarding
 
-1. Build hello screen with CTA
-2. Model selection screen (curated list, device info, download progress)
+1. Build welcome screen with CTA
+2. Model selection screen (skip-able placeholder — "Set up later" until Phase 6)
 3. Currency picker screen
 4. Optional hourly rate input screen
 5. Define `user_settings` Drizzle schema + migration
 6. Persist settings in user_settings table
-7. Gate: redirect to onboarding if no model downloaded
+7. Gate: redirect to onboarding if `!onboardingStore.completed`
 
 ### Phase 6: Chat Core
 
@@ -57,7 +59,7 @@ Each phase defines its schema + runs migrations when it first needs the tables.
 4. Build regex pre-processor (`llm/pre-processor.ts`)
 5. Build chat UI (chat-list, chat-bubble, chat-input)
 6. Implement chat-service pipeline (without extraction yet — echo mode)
-7. Store chat messages in DB
+7. Chat messages are ephemeral (useState in chat modal, NOT stored in DB or Zustand)
 
 ### Phase 7: Expense Extraction
 
@@ -92,9 +94,11 @@ Each phase defines its schema + runs migrations when it first needs the tables.
 1. Attachments (camera, photo library, document picker → expense)
 2. Subscription keyword detection in pre-processor + LLM extraction
 3. Expense stats/summaries (daily/weekly/monthly)
-4. Manual add/edit forms for expenses and tasks
-5. Error handling, loading states, empty states
-6. Platform-specific haptic feedback tuning
+4. Error handling, loading states, empty states
+5. Platform-specific haptic feedback tuning
+
+### Deferred (not in V1)
+- Export (CSV/PDF)
 
 ---
 

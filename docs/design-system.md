@@ -58,11 +58,6 @@ Light mode uses default values; dark mode overrides via `@variant dark`:
 
 Theme follows system preference by default, manual toggle in settings. Components use `dark:` Tailwind prefix for two-theme styling. `theme-store` still controls system/manual toggle + provides `colorScheme` to the root View.
 
-### Loading Strategy
-
-- **Splash screen** — shows during critical init (DB migrations, LLM context load)
-- **Skeleton screens** — for non-critical data (expense list, task list, chat history)
-
 ### Font — Inter
 
 **Inter** (humanist sans-serif) — great readability, used by Fuse Wallet reference design. Loaded via `expo-font` — same font on both platforms for consistency.
@@ -90,42 +85,4 @@ Theme follows system preference by default, manual toggle in settings. Component
 - Lists: FlatList with card items, swipe actions where appropriate
 - Bottom sheets (`@gorhom/bottom-sheet`) for quick actions (edit expense, mark done, category picker, filters)
 
-### Onboarding Flow
-
-```
-1. Hello screen — app name, tagline, CTA "Get Started"
-2. Model selection — curated list, device-aware recommendations, download progress
-3. Currency picker — user's default currency
-4. Hourly rate (optional) — "How much do you make per hour?" for work-hours context
-5. Done → Chat screen
-```
-
-### Expense Card — Work-Hours Context
-
-When hourly rate is set, expense cards show:
-
-```
-☕ Coffee at Starbucks         -$4.50
-Cash · Food & Drink · Today    ≈ 0.5 hrs
-```
-
-### Privacy Features
-
-**App Lock (optional passcode):**
-
-- User sets a 4-6 digit passcode in Settings → Security
-- On app foreground (AppState change), show lock screen if enabled
-- Passcode stored as SHA-256 hash in MMKV (`hashed_passcode` key)
-- No biometric in V1 — just passcode
-- Root layout gates all routes behind lock check
-- 3 failed attempts → 30s cooldown
-
-**Amount Masking (privacy mode):**
-
-- Tap "Total Expenses" header (or any summary amount) → all monetary values across the app toggle to masked
-- `$42.32` → `$xx.xx`, `≈ 0.5 hrs` → `≈ x.x hrs`
-- State lives in `security-store.ts` (`amountsHidden: boolean`), persisted via MMKV
-- `usePrivacy()` hook exposes `formatAmount(amount)` — returns masked string when active
-- All expense cards, stats, totals, and work-hours displays consume this hook
-- Visual indicator: small eye/eye-off icon next to totals
-- Tap again to reveal
+See [screens/](screens/) for per-screen layouts, navigation, and behavior.
