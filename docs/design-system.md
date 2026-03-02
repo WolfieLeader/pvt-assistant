@@ -85,4 +85,11 @@ Theme follows system preference by default, manual toggle in settings. Component
 - Lists: FlatList with card items, swipe actions where appropriate
 - Bottom sheets (`@gorhom/bottom-sheet`) for quick actions (edit expense, mark done, category picker, filters)
 
+### Category Visuals
+
+- **Icons**: Emoji strings stored in `categories` DB table (e.g. "🍕"). Universal, zero bundle cost, no lucide dependency
+- **Colors**: Hex from Tailwind palette (400/500 level), stored on parent category rows only
+- Children inherit parent color via `parent_id` FK lookup at query time
+- One distinct hue per parent category (12 total): orange, blue, cyan, violet, pink, red, green, amber, sky, emerald, rose, gray
+
 See [screens/](screens/) for per-screen layouts, navigation, and behavior.

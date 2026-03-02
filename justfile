@@ -26,5 +26,15 @@ verify: fmt lint typecheck
 install:
     bun install
 
+db-generate:
+    bun run db:generate
+
+db-regenerate:
+    rm -rf drizzle/
+    bun run db:generate
+
+db-studio:
+    bun run db:studio
+
 clean:
     rm -rf .expo node_modules/.cache dist

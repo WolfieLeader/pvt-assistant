@@ -24,6 +24,19 @@
 3. Load custom font via `expo-font` (Inter) with custom hook
 4. Create constants: `typography.ts`, `spacing.ts`, `haptics.ts`
 
+### Phase 3.5: Schema Definition — Complete
+
+All Drizzle schemas, Zod validation types, and migrations defined upfront so forms/validators/services build on real types from day 1.
+
+1. Define Drizzle schema — `src/db/schema.ts` (categories, expenses, tasks, attachments)
+2. Create Zod validation schemas — `src/db/zod.ts` (insert + extraction schemas)
+3. Pass schema to Drizzle client + enable FK pragma — `src/db/client.ts`
+4. Configure babel inline-import for `.sql` migrations
+5. Generate migration via `drizzle-kit generate`
+6. Create category seed — `src/db/seed.ts` (~80 rows, 12 parents)
+7. Wire real migrations hook — `src/hooks/use-migrations.ts`
+8. Create amount utilities — `src/utils/amount.ts`
+
 ### Phase 4: Navigation & UI Components
 
 1. Set up tab navigation (`(tabs)/_layout.tsx`) — Home, Expenses, Tasks, Settings
@@ -33,23 +46,13 @@
 5. Build manual add forms in chat modal (quick-action cards, add-expense-form, add-task-form)
 6. Create placeholder tab screens
 
-**Schema/migration ownership by feature phase:**
-
-- Phase 5 (Onboarding): `user_settings` table
-- Phase 7 (Expenses): `expenses` + `attachments` tables
-- Phase 8 (Tasks): `tasks` table
-
-Each phase defines its schema + runs migrations when it first needs the tables.
-
 ### Phase 5: Onboarding
 
 1. Build welcome screen with CTA
 2. Model selection screen (skip-able placeholder — "Set up later" until Phase 6)
 3. Currency picker screen
 4. Optional hourly rate input screen
-5. Define `user_settings` Drizzle schema + migration
-6. Persist settings in user_settings table
-7. Gate: redirect to onboarding if `!onboardingStore.completed`
+5. Gate: redirect to onboarding if `!onboardingStore.completed`
 
 ### Phase 6: Chat Core
 
@@ -65,21 +68,19 @@ Each phase defines its schema + runs migrations when it first needs the tables.
 
 1. Write intent-classifier prompt + GBNF
 2. Write expense-extraction prompt + GBNF grammar + zExpenseExtraction
-3. Define `expenses` + `attachments` Drizzle schema + migration
-4. Implement expense-service (create, read, update, delete)
-5. Build expense list screen + expense-card (with work-hours context)
-6. Wire chat → pre-process → classify → extract → store → confirm flow
-7. Add search bar + category/date filters on expense list
+3. Implement expense-service (create, read, update, delete)
+4. Build expense list screen + expense-card (with work-hours context)
+5. Wire chat → pre-process → classify → extract → store → confirm flow
+6. Add search bar + category/date filters on expense list
 
 ### Phase 8: Task Extraction
 
 1. Write task-extraction prompt + GBNF grammar + zTaskExtraction
-2. Define `tasks` Drizzle schema + migration
-3. Implement task-service
-4. Set up expo-notifications for reminders
-5. Build task list screen + task-card
-6. Wire task extraction into chat pipeline
-7. Add search + priority/status filters on task list
+2. Implement task-service
+3. Set up expo-notifications for reminders
+4. Build task list screen + task-card
+5. Wire task extraction into chat pipeline
+6. Add search + priority/status filters on task list
 
 ### Phase 9: Settings & Model Management
 

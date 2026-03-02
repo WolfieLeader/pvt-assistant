@@ -7,7 +7,9 @@
     "android": "expo start --android",
     "ios": "expo start --ios",
     "lint": "expo lint",
-    "lint:fix": "expo lint"
+    "lint:fix": "expo lint",
+    "db:generate": "bunx drizzle-kit generate",
+    "db:studio": "bunx drizzle-kit studio"
   },
   "dependencies": {
     "@expo-google-fonts/inter": "^0.4.2",

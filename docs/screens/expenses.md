@@ -9,9 +9,11 @@
 ## Expense Card Detail
 
 ```
-icon  Description           -$4.50
-Cash  · Food & Drink · Today   ≈ 0.5 hrs
+icon  Title                 -$4.50
+Food  · Coffee · Today        ≈ 0.5 hrs
 ```
+
+Amount stored as integer cents, displayed via `formatAmount()` from `src/utils/amount.ts`.
 
 When hourly rate is set, cards show work-hours equivalent (`≈ X hrs`).
 
@@ -24,5 +26,5 @@ When hourly rate is set, cards show work-hours equivalent (`≈ X hrs`).
 
 ## Data
 
-- **Reads**: `expenses` table, categories const (see [database-schema.md](../database-schema.md))
+- **Reads**: `expenses` table, categories (see `src/db/schema.ts`)
 - **Writes**: via React Query mutations
