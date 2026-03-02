@@ -1,10 +1,13 @@
-import * as SplashScreen from "expo-splash-screen";
+import { BottomSheetModalProvider } from "@gorhom/bottom-sheet";
 import { Stack } from "expo-router";
+import * as SplashScreen from "expo-splash-screen";
 import { useEffect } from "react";
+import { GestureHandlerRootView } from "react-native-gesture-handler";
 import "~/global.css";
-import { useAppReady } from "~/hooks/use-app-ready";
-import { ThemeProvider } from "~/providers/theme";
+import { useFonts } from "~/hooks/use-load-fonts";
+import { useMigrations } from "~/hooks/use-migrations";
 import { QueryProvider } from "~/providers/react-query";
+import { ThemeProvider } from "~/providers/theme";
 
 SplashScreen.preventAutoHideAsync();
 
@@ -19,10 +22,24 @@ export default function RootLayout() {
   if (!ready) return null;
 
   return (
-    <ThemeProvider>
-      <QueryProvider>
-        <Stack />
-      </QueryProvider>
-    </ThemeProvider>
+    <GestureHandlerRootView style={{ flex: 1 }}>
+      <ThemeProvider>
+        <QueryProvider>
+          <BottomSheetModalProvider>
+            <Stack />
+          </BottomSheetModalProvider>
+        </QueryProvider>
+      </ThemeProvider>
+    </GestureHandlerRootView>
   );
 }
+
+const useAppReady = () => {
+  const fonts = useFonts();
+  const migrations = useMigrations();
+
+  return {
+    ready: fonts.success && migrations.success,
+    error: fonts.error ?? migrations.error,
+  } as const;
+};
