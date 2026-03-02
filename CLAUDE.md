@@ -7,3 +7,4 @@
 - Read `docs/` before implementing — has architecture, roadmap, schemas, design system
 - When adding/removing deps, update `docs/deps.md`
 - Style - matching tokens in `global.css` and `src/consts/`, RN font use per-weight family names, not `fontWeight`
+- Plans: include "Key Decisions" section w/ rationale for fresh-context execution
