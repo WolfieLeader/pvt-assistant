@@ -42,13 +42,13 @@
   "material-icon-theme.files.associations": {
     "AGENTS.md": "cline",
     "app.json": "settings",
-    "opencode.json": "copilot",
-    "skills-lock.json": "vercel"
+    "opencode.json": "copilot"
   },
   "material-icon-theme.folders.associations": {
     ".agents": "robot",
     ".opencode": "cline",
-    "skills": "plugin"
+    "skills": "plugin",
+    "stores": "context"
   },
-  "cSpell.words": ["mmkv", "Uniwind"]
+  "cSpell.words": ["mmkv", "pressable", "Uniwind"]
 }

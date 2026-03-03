@@ -36,5 +36,8 @@ db-regenerate:
 db-studio:
     bun run db:studio
 
+prebuild:
+    bun run prebuild
+
 clean:
     rm -rf .expo node_modules/.cache dist
