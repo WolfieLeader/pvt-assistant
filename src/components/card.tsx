@@ -39,7 +39,7 @@ function PressableCard({ onPress, className, style, children, ...props }: Omit<P
       onPressOut={onPressOut}
       onPress={handlePress}
       android_ripple={Platform.OS === "android" ? ANDROID_RIPPLE : undefined}
-      className={cn("bg-card rounded-card p-[20px]", className)}
+      className={cn("bg-card rounded-card p-5", className)}
       style={[shadowStyle, animatedStyle, style]}
       {...props}>
       {children}
@@ -57,7 +57,7 @@ export function Card({ pressable, onPress, className, style, children, ...props 
   }
 
   return (
-    <View className={cn("bg-card rounded-card p-[20px]", className)} style={[shadowStyle, style]} {...props}>
+    <View className={cn("bg-card rounded-card p-5", className)} style={[shadowStyle, style]} {...props}>
       {children}
     </View>
   );

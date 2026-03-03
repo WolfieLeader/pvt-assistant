@@ -6,6 +6,7 @@ import { cn } from "~/utils/cn";
 import { AnimatedPressable } from "./animated-pressable";
 
 const ANDROID_RIPPLE = { color: "rgba(0,0,0,0.1)" } as const;
+const TEXT_STYLE = { includeFontPadding: false } as const;
 
 const variantStyles = {
   primary: "bg-accent",
@@ -88,7 +89,7 @@ export function Button({
       {loading ? (
         <ActivityIndicator size="small" color={variant === "secondary" || variant === "ghost" ? undefined : "#fff"} />
       ) : (
-        <RNText className={cn(variantText[variant], sizeText[size])} style={{ includeFontPadding: false }}>
+        <RNText className={cn(variantText[variant], sizeText[size])} style={TEXT_STYLE}>
           {children}
         </RNText>
       )}

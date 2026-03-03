@@ -4,7 +4,7 @@ import { Platform, StyleSheet } from "react-native";
 import { useAnimatedStyle, withSpring } from "react-native-reanimated";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 import { useCSSVariable } from "uniwind";
-import { AnimatedPressable } from "~/components/ui/animated-pressable";
+import { AnimatedPressable } from "./animated-pressable";
 import { hapticFeedback } from "~/consts/haptics";
 import { SPACING, TAB_BAR_HEIGHT } from "~/consts/spacing";
 import { useScrollContext } from "~/contexts/scroll";

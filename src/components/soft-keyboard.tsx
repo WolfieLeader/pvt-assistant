@@ -1,16 +1,15 @@
 import { Delete } from "lucide-react-native";
 import { Text as RNText, View } from "react-native";
 import { hapticFeedback } from "~/consts/haptics";
-import { PIN_LENGTH } from "~/consts/security";
 import { usePressAnimation } from "~/hooks/use-press-animation";
 import { cn } from "~/utils/cn";
 import { AnimatedPressable } from "./animated-pressable";
 
 type SoftKeyboardProps = {
-  value: string;
   onChange: (value: string | ((prev: string) => string)) => void;
   variant: keyof typeof SOFT_KEYBOARD_VARIANTS;
   disabled?: boolean;
+  maxLength?: number;
 };
 
 type KeyProps = {
@@ -19,6 +18,7 @@ type KeyProps = {
   disabled?: boolean;
 };
 
+const KEY_TEXT_STYLE = { fontSize: 28, includeFontPadding: false } as const;
 const MAX_AMOUNT_LENGTH = 13;
 const MAX_DECIMALS = 2;
 
@@ -32,7 +32,6 @@ const SOFT_KEYBOARD_VARIANTS = {
     ],
     applyFn: (prev: string, key: string): string => {
       if (key === "del") return prev.slice(0, -1);
-      if (prev.length >= PIN_LENGTH) return prev;
       return prev + key;
     },
   },
@@ -63,11 +62,15 @@ const SOFT_KEYBOARD_VARIANTS = {
   },
 } as const;
 
-export function SoftKeyboard({ value, onChange, variant, disabled }: SoftKeyboardProps) {
+export function SoftKeyboard({ onChange, variant, disabled, maxLength }: SoftKeyboardProps) {
   const layout = SOFT_KEYBOARD_VARIANTS[variant];
 
   const handlePress = (key: string | number) => {
-    onChange((prev) => layout.applyFn(typeof prev === "string" ? prev : "", String(key)));
+    const keyStr = String(key);
+    onChange((prev) => {
+      if (maxLength && keyStr !== "del" && prev.length >= maxLength) return prev;
+      return layout.applyFn(prev, keyStr);
+    });
   };
 
   return (
@@ -107,7 +110,7 @@ function Key({ value, onPress, disabled }: KeyProps) {
       {value === "del" ? (
         <Delete size={24} className="text-text" />
       ) : (
-        <RNText className="font-sans-semibold text-text" style={{ fontSize: 28, includeFontPadding: false }}>
+        <RNText className="font-sans-semibold text-text" style={KEY_TEXT_STYLE}>
           {value}
         </RNText>
       )}
