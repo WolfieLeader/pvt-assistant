@@ -27,11 +27,13 @@ npm: `npmjs.com/package/{name}`
 - **react-native-svg** — SVG support for RN — [gh](https://github.com/software-mansion/react-native-svg)
 - **react-native-mmkv** — Fast sync key-value storage — [gh](https://github.com/mrousavy/react-native-mmkv)
 - **expo-haptics** — Haptic feedback — [docs](https://docs.expo.dev/versions/latest/sdk/haptics) · [gh](https://github.com/expo/expo)
+- **expo-secure-store** — Encrypted key-value storage (Keychain/Keystore) — [docs](https://docs.expo.dev/versions/latest/sdk/securestore) · [gh](https://github.com/expo/expo)
+- **expo-crypto** — SHA-256 hashing + random bytes — [docs](https://docs.expo.dev/versions/latest/sdk/crypto) · [gh](https://github.com/expo/expo)
 - **@expo-google-fonts/inter** — Inter font (400/500/600/700) — [gh](https://github.com/expo/google-fonts)
 
 ### Expo — [docs](https://docs.expo.dev)
 
-expo, expo-constants, expo-dev-client, expo-device, expo-font, expo-glass-effect, expo-haptics, expo-image, expo-linking, expo-router, expo-splash-screen, expo-sqlite, expo-status-bar, expo-symbols, expo-system-ui, expo-web-browser
+expo, expo-constants, expo-crypto, expo-dev-client, expo-device, expo-font, expo-glass-effect, expo-haptics, expo-image, expo-linking, expo-router, expo-secure-store, expo-splash-screen, expo-sqlite, expo-status-bar, expo-symbols, expo-system-ui, expo-web-browser
 
 ## Dev
 
@@ -49,6 +51,7 @@ expo, expo-constants, expo-dev-client, expo-device, expo-font, expo-glass-effect
 ```bash
 # Production (future phases)
 bun add llama.rn expo-notifications expo-file-system expo-document-picker expo-image-picker expo-camera
+# expo-secure-store and expo-crypto already installed (Phase 6)
 ```
 
 ### Library Roles
