@@ -1,9 +1,20 @@
-import { ActivityIndicator, Platform, type PressableProps } from "react-native";
+import type { ComponentType, ReactNode } from "react";
+import {
+  ActivityIndicator,
+  Platform,
+  Pressable,
+  type PressableProps,
+  type StyleProp,
+  type ViewStyle,
+} from "react-native";
 import { Text as RNText } from "react-native";
+import Animated from "react-native-reanimated";
+import { useCSSVariable } from "uniwind";
 import { hapticFeedback } from "~/consts/haptics";
 import { usePressAnimation } from "~/hooks/use-press-animation";
 import { cn } from "~/utils/cn";
-import { AnimatedPressable } from "./animated-pressable";
+
+const AnimatedPressable = Animated.createAnimatedComponent(Pressable);
 
 const ANDROID_RIPPLE = { color: "rgba(0,0,0,0.1)" } as const;
 const TEXT_STYLE = { includeFontPadding: false } as const;
@@ -28,46 +39,89 @@ const sizeStyles = {
   lg: "py-md px-xl rounded-button",
 } as const;
 
+const iconOnlySize = {
+  sm: "w-8 h-8",
+  md: "w-10 h-10",
+  lg: "w-12 h-12",
+} as const;
+
 const sizeText = {
   sm: "text-caption",
   md: "text-body",
   lg: "text-subtitle",
 } as const;
 
+const iconSizeMap = { sm: 16, md: 20, lg: 24 } as const;
+
 type Props = Omit<PressableProps, "children" | "style"> & {
   variant?: keyof typeof variantStyles;
   size?: keyof typeof sizeStyles;
+  icon?: ComponentType<{ size: number; color: string }>;
+  label?: string;
+  children?: ReactNode;
   disabled?: boolean;
   loading?: boolean;
-  children: string;
   className?: string;
   activeScale?: number;
   activeOpacity?: number;
+  style?: StyleProp<ViewStyle>;
+  haptic?: Parameters<typeof hapticFeedback>[0] | false;
 };
 
 export function Button({
   variant = "primary",
   size = "md",
+  icon: Icon,
+  label,
+  children,
   disabled,
   loading,
-  children,
   className,
   activeScale = 0.975,
   activeOpacity = 0.9,
+  style,
+  haptic = "tap",
   onPress,
   ...props
 }: Props) {
   const isDisabled = disabled || loading;
+  const isIconOnly = !!Icon && !label && !children;
   const { animatedStyle, onPressIn, onPressOut } = usePressAnimation({
     scale: activeScale,
     opacity: activeOpacity,
     disabled: isDisabled,
   });
 
+  const [textColor, accentColor] = useCSSVariable(["--color-text", "--color-accent"]) as string[];
+
+  const iconColor =
+    variant === "primary" || variant === "danger" ? "#fff" : variant === "ghost" ? accentColor : textColor;
+
   const handlePress: PressableProps["onPress"] = (e) => {
     if (isDisabled) return;
-    hapticFeedback("tap");
+    if (haptic !== false) hapticFeedback(haptic);
     onPress?.(e);
+  };
+
+  const renderContent = () => {
+    if (loading) {
+      return (
+        <ActivityIndicator size="small" color={variant === "secondary" || variant === "ghost" ? undefined : "#fff"} />
+      );
+    }
+
+    if (children) return children;
+
+    return (
+      <>
+        {Icon && <Icon size={iconSizeMap[size]} color={iconColor} />}
+        {label && (
+          <RNText className={cn(variantText[variant], sizeText[size])} style={TEXT_STYLE}>
+            {label}
+          </RNText>
+        )}
+      </>
+    );
   };
 
   return (
@@ -80,19 +134,14 @@ export function Button({
       className={cn(
         "items-center justify-center flex-row",
         variantStyles[variant],
-        sizeStyles[size],
+        isIconOnly ? iconOnlySize[size] : sizeStyles[size],
+        isIconOnly ? "rounded-full" : Icon && label && "gap-xs",
         isDisabled && "opacity-50",
         className,
       )}
-      style={animatedStyle}
+      style={[animatedStyle, style]}
       {...props}>
-      {loading ? (
-        <ActivityIndicator size="small" color={variant === "secondary" || variant === "ghost" ? undefined : "#fff"} />
-      ) : (
-        <RNText className={cn(variantText[variant], sizeText[size])} style={TEXT_STYLE}>
-          {children}
-        </RNText>
-      )}
+      {renderContent()}
     </AnimatedPressable>
   );
 }

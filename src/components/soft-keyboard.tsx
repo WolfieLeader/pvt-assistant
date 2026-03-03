@@ -1,9 +1,7 @@
 import { Delete } from "lucide-react-native";
 import { Text as RNText, View } from "react-native";
-import { hapticFeedback } from "~/consts/haptics";
-import { usePressAnimation } from "~/hooks/use-press-animation";
 import { cn } from "~/utils/cn";
-import { AnimatedPressable } from "./animated-pressable";
+import { Button } from "./button";
 
 type SoftKeyboardProps = {
   onChange: (value: string | ((prev: string) => string)) => void;
@@ -87,26 +85,16 @@ export function SoftKeyboard({ onChange, variant, disabled, maxLength }: SoftKey
 }
 
 function Key({ value, onPress, disabled }: KeyProps) {
-  const { animatedStyle, onPressIn, onPressOut } = usePressAnimation({
-    scale: 0.92,
-    opacity: 0.7,
-    disabled: disabled || value === "",
-  });
-
   if (value === "") return <View className="flex-1 min-h-18" />;
 
   return (
-    <AnimatedPressable
-      onPressIn={onPressIn}
-      onPressOut={onPressOut}
-      onPress={() => {
-        if (disabled) return;
-        hapticFeedback("tap");
-        onPress();
-      }}
+    <Button
+      variant="ghost"
+      className={cn("flex-1 min-h-18 py-0 px-0", disabled && "opacity-30")}
+      activeScale={0.92}
+      activeOpacity={0.7}
       disabled={disabled}
-      className={cn("flex-1 min-h-18 items-center justify-center rounded-button", disabled && "opacity-30")}
-      style={animatedStyle}>
+      onPress={onPress}>
       {value === "del" ? (
         <Delete size={24} className="text-text" />
       ) : (
@@ -114,6 +102,6 @@ function Key({ value, onPress, disabled }: KeyProps) {
           {value}
         </RNText>
       )}
-    </AnimatedPressable>
+    </Button>
   );
 }

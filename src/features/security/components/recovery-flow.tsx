@@ -63,9 +63,7 @@ export function RecoveryFlow({ onRecovered, onCancel }: Props) {
         <Text color="muted" className="text-center">
           No recovery questions were configured. You cannot reset your passcode.
         </Text>
-        <Button variant="secondary" onPress={onCancel}>
-          Go Back
-        </Button>
+        <Button variant="secondary" label="Go Back" onPress={onCancel} />
       </View>
     );
   }
@@ -151,12 +149,8 @@ export function RecoveryFlow({ onRecovered, onCancel }: Props) {
       )}
 
       <View className="gap-sm">
-        <Button onPress={handleVerify} disabled={!canSubmit} loading={verifying}>
-          Verify
-        </Button>
-        <Button variant="ghost" onPress={onCancel}>
-          Cancel
-        </Button>
+        <Button label="Verify" onPress={handleVerify} disabled={!canSubmit} loading={verifying} />
+        <Button variant="ghost" label="Cancel" onPress={onCancel} />
       </View>
     </ScrollView>
   );

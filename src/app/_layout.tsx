@@ -30,7 +30,6 @@ export default function RootLayout() {
             <AppLockGuard>
               <Stack screenOptions={{ headerShown: false }}>
                 <Stack.Screen name="(tabs)" />
-                <Stack.Screen name="chat" options={{ presentation: "modal" }} />
               </Stack>
             </AppLockGuard>
           </BottomSheetModalProvider>

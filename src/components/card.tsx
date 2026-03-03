@@ -1,8 +1,10 @@
-import { Platform, View, type ViewProps } from "react-native";
+import { Platform, Pressable, View, type ViewProps } from "react-native";
+import Animated from "react-native-reanimated";
 import { hapticFeedback } from "~/consts/haptics";
 import { usePressAnimation } from "~/hooks/use-press-animation";
 import { cn } from "~/utils/cn";
-import { AnimatedPressable } from "./animated-pressable";
+
+const AnimatedPressable = Animated.createAnimatedComponent(Pressable);
 
 const ANDROID_RIPPLE = { color: "rgba(0,0,0,0.06)" } as const;
 

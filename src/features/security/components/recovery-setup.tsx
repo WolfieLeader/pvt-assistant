@@ -84,9 +84,7 @@ export function RecoverySetup({ onComplete }: Props) {
         Answers are case-insensitive
       </Text>
 
-      <Button onPress={handleSubmit} disabled={!canSubmit} loading={saving}>
-        Continue
-      </Button>
+      <Button label="Continue" onPress={handleSubmit} disabled={!canSubmit} loading={saving} />
     </ScrollView>
   );
 }
