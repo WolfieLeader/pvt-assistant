@@ -107,6 +107,62 @@ Theme follows system preference by default, manual toggle in settings. Component
 
 See [screens/](screens/) for per-screen layouts, navigation, and behavior.
 
+## Platform Decisions
+
+Cross-platform resolutions where Apple HIG, M3, and Samsung OneUI disagree. See [`docs/design-guidelines/`](design-guidelines/) for per-platform specs and comparison tables.
+
+### Gestures
+- **Long-press** = context menu (Apple + Samsung aligned; M3 uses long-press for selection — we accept this divergence)
+- **Swipe trailing (left)** = trash icon on red background
+- **Swipe leading (right)** = not used
+
+### Touch Targets
+- **44pt minimum** (iOS-aligned). Close enough to M3's 48dp after density scaling
+- All interactive elements wrapped in `Pressable` with `hitSlop` when visual size < 44pt
+
+### Modals & Dialog Placement
+- **Detail views** = centered modal (Samsung info dialog pattern)
+- **Forms / editing** = bottom sheets (all platforms support)
+- **Confirmations** = centered dialog (M3 + Apple aligned)
+- Modal dismiss: Close/X button (leading position); "Back" = stack pop only
+
+### Destructive Actions
+- **Single item deletion** = undo toast + 60s tray (Material snackbar pattern, extended duration)
+- **Critical / irreversible** = destructive-button with double-press confirmation
+- Delete button in detail modal uses `variant="danger"` (red, per all platforms)
+- Color: red exclusively for destructive — don't dilute
+
+### Navigation
+- Bottom tab bar (phone), navigation rail (tablet) — per window size classes
+- Main functions reachable within ≤2 taps from home
+
+### Haptics
+- Platform-divergent maps in `src/consts/haptics.ts`
+- **iOS** = physics-based (light/medium/heavy via UIImpactFeedbackGenerator)
+- **Android** = semantic (confirm/reject/toggle via HapticFeedbackConstants)
+
+### Typography
+- **Inter** 400–700, body=14, cross-platform consistency
+- Meets WCAG AA contrast requirements (4.5:1)
+- See Styling Rules above for weight handling
+
+### Dark Mode / Theming
+- Custom tokens in `global.css` via `@theme` — not platform semantic colors
+- `dark:` Tailwind prefix, no JS-based color switching
+- Theme follows system preference, manual toggle in settings
+
+### Selection Controls
+- Custom-rendered switches/toggles for cross-platform consistency
+- No native checkboxes or radio buttons (not native iOS)
+
+### Cards
+- Custom card components (not platform-native)
+- Large border-radius (20-32px), elevated with subtle shadow
+
+### Search
+- Search bar in header area
+- Full-screen results overlay
+
 ### Platform Design Guidelines
 
 The app takes inspiration from and follows **Apple Human Interface Guidelines** (iOS) and **Samsung OneUI** (Android/Galaxy). These are the primary design authorities for platform-native behavior, interaction patterns, and component conventions.
