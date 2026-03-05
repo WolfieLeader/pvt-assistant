@@ -211,7 +211,7 @@ Main functions should be reachable within ≤2 taps from the home screen.
 | Body | 14 | 15 | 16 | **17** | 19 | 21 | 23 | 28 | 33 | 40 | 47 | 53 |
 | Callout | 13 | 14 | 15 | **16** | 18 | 22 | 23 | 26 | 32 | 38 | 44 | 51 |
 | Subhead | 12 | 13 | 14 | **15** | 17 | 19 | 21 | 25 | 30 | 36 | 42 | 49 |
-| Footnote | 12 | 12 | 13 | **15** | 17 | 19 | 19 | 23 | 27 | 33 | 38 | 44 |
+| Footnote | 12 | 12 | 12 | **13** | 15 | 17 | 19 | 23 | 27 | 33 | 38 | 44 |
 | Caption 1 | 11 | 11 | 11 | **12** | 14 | 16 | 18 | 22 | 26 | 32 | 37 | 43 |
 | Caption 2 | 11 | 11 | 11 | **11** | 13 | 15 | 17 | 20 | 24 | 29 | 34 | 40 |
 
@@ -781,7 +781,7 @@ A narrow floating window (~320pt wide, Compact width class) hovering over the ma
 
 | Device | Requirement |
 |--------|------------|
-| iPad | **Must support both orientations** (App Store requirement) |
+| iPad | **Strongly recommended to support both orientations** (HIG guidance; not a hard App Store rule, but violations may trigger 4.0 rejection) |
 | iPhone | Portrait default; landscape optional per app |
 
 Design for size classes, not specific devices:
@@ -836,9 +836,9 @@ Design for size classes, not specific devices:
 | Account deletion | If app supports account creation, must allow in-app deletion |
 | Privacy policy | Must be accessible within the app |
 | IPv6 | Must work on IPv6-only networks |
-| Binary size | ≤200MB for cellular download |
+| Binary size | ≤200MB default cellular download prompt threshold (user-configurable in Settings) |
 | Xcode 26 / iOS 26 SDK | Required for new submissions starting April 28, 2026 |
-| Liquid Glass adoption | Required by iOS 27 (opt-out removal) |
+| Liquid Glass adoption | Opt-out available in iOS 26 via `UIDesignRequiresCompatibility`; removal in iOS 27 is *projected, not confirmed by Apple* |
 
 ### AI Disclosure (Guideline 5.1.2(i), Nov 2025)
 
@@ -968,7 +968,7 @@ Users can adjust Liquid Glass appearance via Settings > Display & Brightness > L
 | Per-view (SwiftUI) | `.glassEffect(.none)` |
 | Per-view (UIKit) | `hidesSharedBackground = true` |
 | Global scroll opt-out | `UIScrollView.appearance().allowsLiquidTransform = false` |
-| Full adoption deadline | Required by iOS 27 (opt-out removal in next major release) |
+| Full adoption deadline | Opt-out exists in iOS 26; removal in iOS 27 is *projected, not confirmed* |
 
 ### Key Rules
 

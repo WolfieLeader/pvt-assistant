@@ -186,11 +186,11 @@ Illustrated empty state with:
 | `CONTEXT_CLICK` | 23 | Context click / right-click equivalent |
 | `KEYBOARD_PRESS` | 27 | Keyboard key down |
 | `KEYBOARD_RELEASE` | 27 | Keyboard key up |
-| `TEXT_HANDLE_MOVE` | 28 | Text selection handle drag |
+| `TEXT_HANDLE_MOVE` | 27 | Text selection handle drag |
 | `GESTURE_START` | 30 | Gesture begins |
 | `GESTURE_END` | 30 | Gesture completes |
-| `CONFIRM` | 34 | Success / affirmative feedback |
-| `REJECT` | 34 | Failure / negative feedback |
+| `CONFIRM` | 30 | Success / affirmative feedback |
+| `REJECT` | 30 | Failure / negative feedback |
 | `TOGGLE_ON` | 34 | Toggle switched on |
 | `TOGGLE_OFF` | 34 | Toggle switched off |
 | `DRAG_START` | 34 | Drag operation begins |
@@ -1036,8 +1036,8 @@ New `ProgressStyle` notification template for ongoing activities:
 |----------|-------------|
 | Aug 31, 2025 | New apps: API 35. Updates: API 35. |
 | Nov 1, 2025 | Extension deadline for Aug 2025 |
-| Aug 2026 | API 36 required (new apps + updates) |
-| Aug 2027 | API 37 required (new apps + updates) |
+| ~Aug 2026 | API 36 required — *projected per Google's annual pattern, not yet formally announced* |
+| ~Aug 2027 | API 37 required — *projected per Google's annual pattern, not yet formally announced* |
 
 Non-compliance: app updates blocked. Existing installs unaffected. Reduced discoverability for users on newer Android versions.
 

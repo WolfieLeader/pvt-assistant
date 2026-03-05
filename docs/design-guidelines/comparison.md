@@ -103,7 +103,7 @@ For full details, see per-platform files: [`apple.md`](apple.md) · [`android.md
 |--------|-----------|-------------------|---------------|
 | **Primary** | Tab bar (2–5) | Bottom nav bar (3–5) | Bottom tabs (3–5), **text only** |
 | **Tab labels** | Icon + text, always visible | Icon + text, always visible | **Text only** (no icons) |
-| **Tab swipe** | N/A | Swipe between tabs | **No swipe** between tabs |
+| **Tab swipe** | N/A | Not default on NavigationBar; supported on Tabs component only | **No swipe** between tabs |
 | **Nav bar height** | — | 80dp | — |
 | **FAB** | Not native (custom) | Core component — 56dp | Supported |
 | **Max depth** | ≤2 taps from home | Shallow hierarchy | Minimize user movement |
@@ -389,7 +389,7 @@ For full details, see per-platform files: [`apple.md`](apple.md) · [`android.md
 | **Layouts** | Split view, sidebar, popovers | List-Detail, Supporting Pane, Feed | Multi-pane ratios (42:58, 38:62) |
 | **Multitasking** | Slide Over + Split View + Stage Manager | Multi-window | Up to **3 split + 5 pop-up** windows |
 | **Desktop mode** | N/A | — | **DeX** (FHD/HD+/WQHD, 160dpi, mouse+keyboard) |
-| **Orientation** | Must support both (App Store req) | Size classes, not orientation; resizability mandatory API 36, no opt-out API 37 | — |
+| **Orientation** | Strongly recommended for both (HIG guidance, not hard req) | Size classes, not orientation; resizability mandatory API 36, no opt-out API 37 | — |
 | **Drag & drop** | Inter-app and intra-app | — | Cross-window D&D |
 
 ---
@@ -417,10 +417,10 @@ For full details, see per-platform files: [`apple.md`](apple.md) · [`android.md
 | **Top rejections** | Crashes (2.1), metadata (2.3), missing IAP (3.1.1), poor UI (4.0), too simple (4.2), privacy (5.1) | Permission misuse, data safety mismatch, privacy policy, crashes/ANRs |
 | **Account deletion** | Required if account creation exists | Required if account creation exists |
 | **AI disclosure** | Must name AI provider + explicit consent (Nov 2025) | — |
-| **Target SDK** | Xcode 26 / iOS 26 SDK (**April 28, 2026**) | API 35 (Aug 2025), API 36 (Aug 2026), API 37 (Aug 2027) |
+| **Target SDK** | Xcode 26 / iOS 26 SDK (**April 28, 2026**) | API 35 (Aug 2025), API 36 (*~Aug 2026, projected*), API 37 (*~Aug 2027, projected*) |
 | **Privacy declaration** | Privacy nutrition labels + PrivacyInfo.xcprivacy | Data safety form |
-| **Binary limit** | ≤200MB cellular download | — |
-| **Upcoming** | iOS 27 / WWDC 2026 (June 8, 2026) | Android 17 (API 37) — Beta 2 out, stable Q2 2026 |
+| **Binary limit** | ≤200MB default cellular prompt threshold (user-configurable) | — |
+| **Upcoming** | iOS 27 / WWDC 2026 (~June 2026, *date not confirmed*) | Android 17 (API 37) — Beta 2 out, stable Q2 2026 |
 
 ---
 
@@ -440,7 +440,7 @@ For full details, see per-platform files: [`apple.md`](apple.md) · [`android.md
 
 | Platform | Current | Next | Key Deadline |
 |----------|---------|------|-------------|
-| **iOS** | iOS 26 (Liquid Glass, Xcode 26) | iOS 27 (WWDC 2026, June 8) | Xcode 26 SDK required April 28, 2026 |
+| **iOS** | iOS 26 (Liquid Glass, Xcode 26) | iOS 27 (WWDC 2026, *~June, date TBA*) | Xcode 26 SDK required April 28, 2026 |
 | **Android** | Android 16 (API 36, M3 Expressive) | Android 17 (API 37, Beta 2 out, stable Q2 2026) | API 36 target required Aug 2026 |
 | **Samsung OneUI** | OneUI 8.5 (Feb 2026, Galaxy S26) | — | Follows Android timeline |
 
