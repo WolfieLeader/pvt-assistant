@@ -6,8 +6,8 @@ export const FONTS = {
 } as const;
 
 export const FONT_SIZE = {
-  caption: 12,
-  body: 14,
+  caption: 13,
+  body: 16,
   subtitle: 16,
   title: 20,
   heading: 28,

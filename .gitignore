@@ -44,3 +44,10 @@ app-example
 
 # Uniwind auto-generated types
 src/types/uniwind.d.ts
+
+# temp
+tmp/
+.tmp/
+
+# worktrees
+.worktrees/

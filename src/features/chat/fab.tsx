@@ -7,7 +7,7 @@ import { SPACING, TAB_BAR_HEIGHT } from "~/consts/spacing";
 import { useScrollContext } from "~/contexts/scroll";
 import { useChatSheet } from "./chat-sheet-context";
 
-const HIDE_OFFSET = 56 + SPACING.md + TAB_BAR_HEIGHT;
+const HIDE_OFFSET = 56 + SPACING.lg + TAB_BAR_HEIGHT;
 
 const shadowStyle = Platform.select({
   ios: { shadowColor: "#000", shadowOffset: { width: 0, height: 3 }, shadowOpacity: 0.15, shadowRadius: 6 },
@@ -40,7 +40,7 @@ export function FAB() {
       size="lg"
       haptic="press"
       className="absolute right-4 w-14 h-14"
-      style={[{ bottom: insets.bottom + TAB_BAR_HEIGHT + SPACING.md }, shadowStyle, scrollStyle]}
+      style={[{ bottom: insets.bottom + TAB_BAR_HEIGHT + SPACING.lg }, shadowStyle, scrollStyle]}
       onPress={present}
     />
   );

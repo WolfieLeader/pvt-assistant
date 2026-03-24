@@ -51,23 +51,22 @@ expo, expo-constants, expo-crypto, expo-dev-client, expo-device, expo-font, expo
 ## Planned
 
 ```bash
-# Production (future phases)
-bun add @tanstack/react-form llama.rn expo-notifications expo-file-system expo-document-picker expo-image-picker expo-camera
-# expo-secure-store and expo-crypto already installed (Phase 6)
+# Phase 12: On-Device AI
+bun add llama.rn expo-file-system
 ```
 
 ### Library Roles
 
-| Library                     | Role                                                                                |
-| --------------------------- | ----------------------------------------------------------------------------------- |
-| **@tanstack/react-form**    | Form state + validation via Standard Schema (Zod, no adapter)                       |
-| **zustand**                 | Global state: theme, onboarding status, active model, user settings cache           |
-| **@tanstack/react-query**   | Async data: DB queries, mutations, cache invalidation, optimistic updates           |
-| **@shopify/flash-list** v2  | All lists (chat, expenses, tasks). New Arch only, auto-sizing, masonry support      |
-| **lucide-react-native**     | Consistent icon set across app. Requires `react-native-svg` peer                    |
-| **react-native-mmkv**       | Sync key-value: theme pref, onboarding complete flag, last active model ID          |
-| **react-native-reanimated** | Already installed. Shared element transitions, spring animations, layout animations |
-| **@gorhom/bottom-sheet**    | Bottom sheets: filters, category picker, quick edit, confirmations                  |
+| Library                     | Role                                                                             |
+| --------------------------- | -------------------------------------------------------------------------------- |
+| **zustand**                 | Global state: theme, onboarding status, active model, user settings cache        |
+| **@tanstack/react-query**   | Async data: DB queries, mutations, cache invalidation, optimistic updates        |
+| **@shopify/flash-list** v2  | Expense feed, category lists. New Arch only, auto-sizing                         |
+| **lucide-react-native**     | Consistent icon set across app. Requires `react-native-svg` peer                 |
+| **react-native-mmkv**       | Sync key-value: theme pref, category frequency, merchant memory, exchange rates  |
+| **react-native-reanimated** | Spring animations, layout animations, floating nav transitions, chart animations |
+| **@gorhom/bottom-sheet**    | Bottom sheets: quick-add modal, category picker, filters, expense detail         |
+| **llama.rn** (planned)      | On-device LLM inference for AI insight generation                                |
 
 ## AI Resources
 

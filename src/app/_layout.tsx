@@ -7,6 +7,7 @@ import { AppLockGuard } from "~/features/security";
 import "~/global.css";
 import { useFonts } from "~/hooks/use-load-fonts";
 import { useMigrations } from "~/hooks/use-migrations";
+import { DeleteStackProvider } from "~/providers/delete-stack-provider";
 import { QueryProvider } from "~/providers/react-query";
 import { ThemeProvider } from "~/providers/theme";
 
@@ -27,11 +28,13 @@ export default function RootLayout() {
       <ThemeProvider>
         <QueryProvider>
           <BottomSheetModalProvider>
-            <AppLockGuard>
-              <Stack screenOptions={{ headerShown: false }}>
-                <Stack.Screen name="(tabs)" />
-              </Stack>
-            </AppLockGuard>
+            <DeleteStackProvider>
+              <AppLockGuard>
+                <Stack screenOptions={{ headerShown: false }}>
+                  <Stack.Screen name="(tabs)" />
+                </Stack>
+              </AppLockGuard>
+            </DeleteStackProvider>
           </BottomSheetModalProvider>
         </QueryProvider>
       </ThemeProvider>

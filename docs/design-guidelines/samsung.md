@@ -11,12 +11,13 @@ OneUI builds on M3 but diverges in structure, ergonomics, and component behavior
 
 M3 has no equivalent concept. OneUI divides every screen into two functional zones based on thumb reachability.
 
-| Zone | Position | Content | Purpose |
-|------|----------|---------|---------|
-| **Viewing area** | Top | Titles, headers, images, non-interactive content | Information display |
-| **Interaction area** | Bottom | Buttons, tabs, navigation, dialogs, toggles | All touch interactions |
+| Zone                 | Position | Content                                          | Purpose                |
+| -------------------- | -------- | ------------------------------------------------ | ---------------------- |
+| **Viewing area**     | Top      | Titles, headers, images, non-interactive content | Information display    |
+| **Interaction area** | Bottom   | Buttons, tabs, navigation, dialogs, toggles      | All touch interactions |
 
 Rules:
+
 - Straight-line separation between zones (no complex shapes — reduces visual complexity)
 - Viewing area uses wide margins for "open space" impression
 - Center-aligned typography in viewing area for visual stability
@@ -31,10 +32,10 @@ Rules:
 
 M3 defines 48dp minimum touch targets. OneUI adds **safety zones** for Samsung's curved-edge displays.
 
-| Zone | Purpose |
-|------|---------|
-| **Reject zone** | Blocks accidental touches in the interaction area |
-| **Grip zone** | Blocks palm and three-finger touches during normal phone handling |
+| Zone            | Purpose                                                                     |
+| --------------- | --------------------------------------------------------------------------- |
+| **Reject zone** | Blocks accidental touches in the interaction area                           |
+| **Grip zone**   | Blocks palm and three-finger touches during normal phone handling           |
 | **Cutout area** | Optimized positioning around camera cutouts (90deg and 270deg orientations) |
 
 All interactive components must stay within the safe area defined by these zones. Re-check cutout handling for both portrait and landscape states.
@@ -47,12 +48,13 @@ All interactive components must stay within the safe area defined by these zones
 
 **Key divergence from M3**: M3 centers all dialogs. OneUI positions dialogs based on whether they require user action.
 
-| Dialog Purpose | Position | Examples |
-|---------------|----------|----------|
+| Dialog Purpose          | Position   | Examples                                             |
+| ----------------------- | ---------- | ---------------------------------------------------- |
 | Choices / confirmations | **Bottom** | Delete confirmation, action list, settings selection |
-| Information / progress | **Center** | Loading indicator, status alert, progress popup |
+| Information / progress  | **Center** | Loading indicator, status alert, progress popup      |
 
 Rules:
+
 - If action is required -> bottom (interaction area)
 - If no action allowed (e.g., loading) -> center
 - Button style in dialogs: **flat** (no background color) — avoids visual clutter
@@ -67,17 +69,19 @@ Rules:
 
 M3 has TopAppBar with small/medium/large variants. OneUI replaces this with a two-state system optimized for one-handed use.
 
-| State | Behavior | When |
-|-------|----------|------|
-| **Extended** | Title centered, functions/buttons lower (thumb reach), more info/notifications below title | Default on page load |
-| **Condensed** | Standard height, more content visible | User scrolls down |
+| State         | Behavior                                                                                   | When                 |
+| ------------- | ------------------------------------------------------------------------------------------ | -------------------- |
+| **Extended**  | Title centered, functions/buttons lower (thumb reach), more info/notifications below title | Default on page load |
+| **Condensed** | Standard height, more content visible                                                      | User scrolls down    |
 
 Scroll behavior:
+
 - Scroll down -> extended collapses to condensed
 - Scroll up -> condensed expands to extended
 - State persisted across app revisits
 
 Component rules:
+
 - Max **3 action buttons** per page (including title)
 - Icon buttons recommended; text buttons for hard-to-symbolize actions
 - Dynamic titles can replace standard app/page names for critical info
@@ -92,12 +96,12 @@ Component rules:
 
 Significant divergences from M3 NavigationBar.
 
-| Aspect | M3 | OneUI |
-|--------|-----|-------|
-| Tab content | Icon + label (labels always visible) | **Text only** (no icons) |
-| Tab count | 3-5 | 3-4 standard, max 5 |
-| Swipe between tabs | Supported | **Not supported** |
-| Title when tabs present | Always shown | Can be **omitted**; main tab title can serve as page heading |
+| Aspect                  | M3                                   | OneUI                                                        |
+| ----------------------- | ------------------------------------ | ------------------------------------------------------------ |
+| Tab content             | Icon + label (labels always visible) | **Text only** (no icons)                                     |
+| Tab count               | 3-5                                  | 3-4 standard, max 5                                          |
+| Swipe between tabs      | Supported                            | **Not supported**                                            |
+| Title when tabs present | Always shown                         | Can be **omitted**; main tab title can serve as page heading |
 
 > Note: OneUI 8.5 introduces a floating, compact, pill-shaped tab bar design in stock apps.
 
@@ -109,13 +113,13 @@ Significant divergences from M3 NavigationBar.
 
 M3 has BottomAppBar (FAB + overflow). OneUI replaces with a dedicated toolbar pattern.
 
-| Aspect | Spec |
-|--------|------|
-| Max buttons | **5** (icons + text required on each) |
-| Min buttons | **2** (single button prohibited) |
-| Overflow | 4 most-used shown + **More options** menu (far right) |
-| Scroll behavior | Auto-hides on scroll down, reappears on scroll up |
-| Use case | Contextual actions after selection (edit, move, delete) |
+| Aspect          | Spec                                                    |
+| --------------- | ------------------------------------------------------- |
+| Max buttons     | **5** (icons + text required on each)                   |
+| Min buttons     | **2** (single button prohibited)                        |
+| Overflow        | 4 most-used shown + **More options** menu (far right)   |
+| Scroll behavior | Auto-hides on scroll down, reappears on scroll up       |
+| Use case        | Contextual actions after selection (edit, move, delete) |
 
 > Source: [Bottom bar](https://developer.samsung.com/one-ui/comp/bottom-bar.html)
 
@@ -125,13 +129,14 @@ M3 has BottomAppBar (FAB + overflow). OneUI replaces with a dedicated toolbar pa
 
 M3 uses 16dp default margins. OneUI requires wider margins.
 
-| Spec | Value |
-|------|-------|
-| **Minimum side margins** | **24dp** (left and right) |
-| Reason | Curved edges, screen corners, touch safe area |
-| Margin optimization | Per focus block type (card, list, singular) |
+| Spec                     | Value                                         |
+| ------------------------ | --------------------------------------------- |
+| **Minimum side margins** | **24dp** (left and right)                     |
+| Reason                   | Curved edges, screen corners, touch safe area |
+| Margin optimization      | Per focus block type (card, list, singular)   |
 
 ### Grid types
+
 - List grid
 - Card grid
 - 2-column grid
@@ -149,13 +154,14 @@ No M3 equivalent. Card-type containers with large rounded corners to capture att
 
 ### Three types
 
-| Type | Content | Variants |
-|------|---------|----------|
+| Type                | Content                         | Variants                                                                                            |
+| ------------------- | ------------------------------- | --------------------------------------------------------------------------------------------------- |
 | **Card (Multiple)** | Multiple related items as cards | Image+text divided, full-bleed bg, image+text stacked, text-only, clustered images, text+controller |
-| **List (Grouped)** | Multiple items in list format | Text-only, thumbnail images, container icons, 2D icons |
-| **Singular** | Single image or hero content | Thumbnails, card-contained images |
+| **List (Grouped)**  | Multiple items in list format   | Text-only, thumbnail images, container icons, 2D icons                                              |
+| **Singular**        | Single image or hero content    | Thumbnails, card-contained images                                                                   |
 
 Layout rules:
+
 - Text: top-left corner
 - On/off controller: bottom-right corner
 - Margins optimized per focus block type
@@ -168,13 +174,14 @@ Layout rules:
 
 M3 has filled/outlined/text/elevated/tonal variants. OneUI simplifies to three emphasis levels with different rules.
 
-| Emphasis | Style | When |
-|----------|-------|------|
-| Low | **Flat** (no background) | Toolbars, dialogs |
-| Medium | **Gray background** | Moderate emphasis |
-| High | **Colored background** | Primary actions |
+| Emphasis | Style                    | When              |
+| -------- | ------------------------ | ----------------- |
+| Low      | **Flat** (no background) | Toolbars, dialogs |
+| Medium   | **Gray background**      | Moderate emphasis |
+| High     | **Colored background**   | Primary actions   |
 
 Rules:
+
 - **Only one button style per screen** (M3 allows mixing)
 - Corner radius: **18dp** (M3 = 20dp for filled, varies by type)
 - Ripple effect: `colorControlHighlight`
@@ -191,46 +198,48 @@ OneUI shares M3 window size classes but adds Samsung-specific multi-pane ratios,
 ### Multi-pane layout ratios (OneUI-specific)
 
 | Width Range | 1st Pane | 2nd Pane |
-|-------------|----------|----------|
-| 600-960dp | 42% | 58% |
-| >= 960dp | 38% | 62% |
-| Foldable | 50% | 50% |
+| ----------- | -------- | -------- |
+| 600-960dp   | 42%      | 58%      |
+| >= 960dp    | 38%      | 62%      |
+| Foldable    | 50%      | 50%      |
 
 ### Navigation by width class
 
-| Width Class | Panes | Navigation |
-|------------|-------|------------|
-| Compact (< 600dp) | 1 | Bottom bar, modal drawer |
-| Medium (600-839dp) | 1-2 | Navigation rail, modal drawer |
-| Expanded (>= 840dp) | 1-2 | Nav rail, modal/standard drawer |
+| Width Class         | Panes | Navigation                      |
+| ------------------- | ----- | ------------------------------- |
+| Compact (< 600dp)   | 1     | Bottom bar, modal drawer        |
+| Medium (600-839dp)  | 1-2   | Navigation rail, modal drawer   |
+| Expanded (>= 840dp) | 1-2   | Nav rail, modal/standard drawer |
 
 ### Multi-window (Samsung-specific)
 
-| Feature | Limit |
-|---------|-------|
-| Split-screen views | Up to **3** simultaneous |
-| Pop-up windows | Up to **5** simultaneous |
-| Resizing | User-customizable |
-| Cross-window | Drag and drop between windows |
+| Feature            | Limit                         |
+| ------------------ | ----------------------------- |
+| Split-screen views | Up to **3** simultaneous      |
+| Pop-up windows     | Up to **5** simultaneous      |
+| Resizing           | User-customizable             |
+| Cross-window       | Drag and drop between windows |
 
 ### Foldable considerations
+
 - Validate foldable continuity between cover and main display
 - In flex/posture states, keep content and controls ergonomically split (viewing area on top panel, interaction area on bottom panel)
 - Z Fold: portrait navigation rail orientation
 
 ### Samsung DeX
 
-| Spec | Value |
-|------|-------|
-| Window mode | Free-form (Android Multi-Window compliant) |
-| Resolution | FHD (1920x1080), HD+ (1600x900), WQHD (2560x1440) |
-| DPI | 160dpi (mdpi) |
-| Screen class | xLarge |
-| Orientation | Landscape (differs from portrait mobile) |
-| Input | Mouse, keyboard, pointer |
-| API | No proprietary Samsung APIs — standard Android Multi-Window |
+| Spec         | Value                                                       |
+| ------------ | ----------------------------------------------------------- |
+| Window mode  | Free-form (Android Multi-Window compliant)                  |
+| Resolution   | FHD (1920x1080), HD+ (1600x900), WQHD (2560x1440)           |
+| DPI          | 160dpi (mdpi)                                               |
+| Screen class | xLarge                                                      |
+| Orientation  | Landscape (differs from portrait mobile)                    |
+| Input        | Mouse, keyboard, pointer                                    |
+| API          | No proprietary Samsung APIs — standard Android Multi-Window |
 
 Design notes:
+
 - Triple-pane layout recommended for tablets in landscape
 - Pop-overs for small input fields on large screens
 - Optimize for pointer + keyboard usage in DeX contexts
@@ -243,26 +252,27 @@ Design notes:
 
 M3 defines semantic haptic constants (confirm, reject, toggle). OneUI adds expressive haptic design with stricter timing and metaphor-based feedback.
 
-| Aspect | M3 | OneUI |
-|--------|-----|-------|
-| Duration | No strict limit | **< 30ms** recommended |
-| Philosophy | Semantic constants | **Familiar metaphors** — realistic sensations |
-| Sync | Not specified | Visual movement timing must **perfectly match** vibration |
+| Aspect     | M3                 | OneUI                                                     |
+| ---------- | ------------------ | --------------------------------------------------------- |
+| Duration   | No strict limit    | **< 30ms** recommended                                    |
+| Philosophy | Semantic constants | **Familiar metaphors** — realistic sensations             |
+| Sync       | Not specified      | Visual movement timing must **perfectly match** vibration |
 
 ### Samsung-specific haptic patterns
 
-| Interaction | Haptic Pattern |
-|-------------|----------------|
-| Keyboard input | Crisp click per key |
-| Special keys (Delete, Space, Fn) | Distinctive differentiated feedback |
-| Camera zoom | Continuous feedback matching zoom |
-| Camera shutter | Analog camera click feel |
-| Switch toggles | Directional vibration matching visual movement |
-| Vibrate mode activation | "Heavy ball falling and bouncing" |
-| Fingerprint failure | Two quick vibrations |
-| Time picker scroll | Tick feedback per increment |
+| Interaction                      | Haptic Pattern                                 |
+| -------------------------------- | ---------------------------------------------- |
+| Keyboard input                   | Crisp click per key                            |
+| Special keys (Delete, Space, Fn) | Distinctive differentiated feedback            |
+| Camera zoom                      | Continuous feedback matching zoom              |
+| Camera shutter                   | Analog camera click feel                       |
+| Switch toggles                   | Directional vibration matching visual movement |
+| Vibrate mode activation          | "Heavy ball falling and bouncing"              |
+| Fingerprint failure              | Two quick vibrations                           |
+| Time picker scroll               | Tick feedback per increment                    |
 
 Design principles:
+
 - Haptics + visuals = "one united component"
 - Sound and vibration must have consistent meanings across same functions
 - Consider human tactile thresholds: intensity discrimination, frequency range, duration sensitivity
@@ -276,26 +286,29 @@ Design principles:
 M3 baseline: Material You dynamic color from wallpaper. OneUI extends this with Samsung's theme engine and Good Lock customization.
 
 ### Shared with M3
+
 - `DynamicColors.applyToActivitiesIfAvailable()` — same API
 
 ### OneUI additions
 
-| Feature | Details |
-|---------|---------|
-| **Good Lock Theme Park** | Deep customization: icon editing, custom effects, system-level elements |
-| **Gallery palette** | Extract dominant colors from any image |
-| **Color extraction scope** | Wallpaper, video wallpapers, gallery images |
-| **OneUI 7+ effects** | Colored glass overlays, translucent blur, gradient backgrounds |
-| **Lock screen** | Blur, grayscale, color overlay, darken effects |
+| Feature                     | Details                                                                      |
+| --------------------------- | ---------------------------------------------------------------------------- |
+| **Good Lock Theme Park**    | Deep customization: icon editing, custom effects, system-level elements      |
+| **Gallery palette**         | Extract dominant colors from any image                                       |
+| **Color extraction scope**  | Wallpaper, video wallpapers, gallery images                                  |
+| **OneUI 7+ effects**        | Colored glass overlays, translucent blur, gradient backgrounds               |
+| **Lock screen**             | Blur, grayscale, color overlay, darken effects                               |
 | **Exposed system elements** | Animation controls, context-aware icon sets, responsive color per Focus Mode |
 
 OneUI visual language (7+):
+
 - Circle as foundational shape throughout UI
 - Translucent blur effects for depth/texture layering
 - Colored gradients on full-background screens (Clock, Calendar, Reminder, alarms)
 - Redesigned app icons with new visual metaphors
 
 OneUI 8.5 additions:
+
 - Floating, compact design elements (pill-shaped bars, floating buttons)
 - Rounder settings UI with larger spacing between entries
 - Bottom-positioned search bar in app drawer and settings
@@ -309,11 +322,11 @@ OneUI 8.5 additions:
 M3 uses icon buttons or overflow (three-dot) for menus — long-press triggers **selection mode**.
 OneUI uses long-press for **context menus** (same as Apple HIG).
 
-| Aspect | M3 | OneUI |
-|--------|-----|-------|
-| Long-press | Selection mode (drag to multi-select) | **Context menu** |
-| Menu format | Menu anchored to trigger button | **Untitled dropdown list** |
-| Trigger | Icon button / overflow | **Long-press on list item** |
+| Aspect      | M3                                    | OneUI                       |
+| ----------- | ------------------------------------- | --------------------------- |
+| Long-press  | Selection mode (drag to multi-select) | **Context menu**            |
+| Menu format | Menu anchored to trigger button       | **Untitled dropdown list**  |
+| Trigger     | Icon button / overflow                | **Long-press on list item** |
 
 > Source: [Dialog](https://developer.samsung.com/one-ui/comp/dialog.html)
 
@@ -323,15 +336,15 @@ OneUI uses long-press for **context menus** (same as Apple HIG).
 
 M3 defines ListItem with one/two/three-line variants (56dp/72dp/88dp heights). OneUI adds specific text constraints and organizational rules.
 
-| Aspect | OneUI Spec |
-|--------|-----------|
-| Text limit | **31 characters** max per line (avoid overflow) |
-| Toggle placement | Right side of row |
-| Naming | Clear, intuitive — noun or short verbal phrase |
-| Subtext | Below main text, or on destination page |
-| Subheaders | Visual chunking of sections |
-| Icons/images | Optional (most lists text-only) |
-| Ordering | Priority-based when possible |
+| Aspect           | OneUI Spec                                      |
+| ---------------- | ----------------------------------------------- |
+| Text limit       | **31 characters** max per line (avoid overflow) |
+| Toggle placement | Right side of row                               |
+| Naming           | Clear, intuitive — noun or short verbal phrase  |
+| Subtext          | Below main text, or on destination page         |
+| Subheaders       | Visual chunking of sections                     |
+| Icons/images     | Optional (most lists text-only)                 |
+| Ordering         | Priority-based when possible                    |
 
 > Source: [Lists](https://developer.samsung.com/one-ui/comp/list.html)
 
@@ -341,11 +354,11 @@ M3 defines ListItem with one/two/three-line variants (56dp/72dp/88dp heights). O
 
 M3 defines a 15-role type scale with Roboto default. OneUI differences:
 
-| Aspect | M3 | OneUI |
-|--------|-----|-------|
-| System font | Roboto | **Samsung One** |
-| Text resizing | Recommended | Required: **up to 200%** without affecting functionality |
-| Type scale | 15 roles published | Uses M3 scale as baseline; no separate published scale |
+| Aspect        | M3                 | OneUI                                                    |
+| ------------- | ------------------ | -------------------------------------------------------- |
+| System font   | Roboto             | **Samsung One**                                          |
+| Text resizing | Recommended        | Required: **up to 200%** without affecting functionality |
+| Type scale    | 15 roles published | Uses M3 scale as baseline; no separate published scale   |
 
 Samsung One font designed by Neville Brody, Luke Prowse, and Florian Runge. Provides typographic foundation across all Samsung products.
 
@@ -356,6 +369,7 @@ Samsung One font designed by Neville Brody, Luke Prowse, and Florian Runge. Prov
 ## 16. Accessibility
 
 Beyond M3 accessibility baseline, OneUI requires:
+
 - Validate large text scaling aggressively (up to 200%) on Samsung devices
 - Icon-only actions must have clear accessible labeling
 - Haptics must be meaningful and synchronized with visual transitions
